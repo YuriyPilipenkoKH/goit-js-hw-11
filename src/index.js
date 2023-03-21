@@ -14,15 +14,11 @@ export const refs = {
   };
     let perPage = 40;
     let page = 0;
-    let currentQuery = ''
-    let remained = 0
-
+ 
     refs.inputField.classList.add('field')
     refs.buttonSubmit.classList.add('search-btn')
     refs.buttonSubmit.innerHTML = lens
     addStyle()
-    // refs.buttonSubmit.disabled = true
-
 
     refs.form.addEventListener('submit', onSearch)
     refs.buttonMore.addEventListener('click', onLoadMoreImg)
@@ -32,22 +28,17 @@ function onSearch(e) {
     e.preventDefault()
     clearGallery()
     page = 1
-    // console.log('page',page);
+  
 
     refs.inputField.focused = false
-    const input = e.currentTarget.elements.searchQuery.value.trim()
-    currentQuery = input
+    let currentQuery = e.currentTarget.elements.searchQuery.value.trim()
 
-    if(input === '' || input.length === 1){
+    if(currentQuery === '' || currentQuery.length === 1){
     return Notiflix.Notify.failure('Please enter valid name.')
     }
    
-    fetchCard(input, page, perPage)
+    fetchCard(currentQuery, page, perPage)
     .then(({ hits,totalHits }) => {
-        console.log('totalHits',totalHits);
-
-        remained =  totalHits - perPage
-        console.log('page',page,'remained',remained);
 
         if (hits.length === 0) {
             Notiflix.Notify.failure(
@@ -153,17 +144,6 @@ function createMarkup(data) {
     refs.galleryList.insertAdjacentHTML('beforeend', renderItem(data));
     lightbox.refresh();
 
-
-    // const { height: cardHeight } = document
-    //   .querySelector('.gallery')
-    //   .firstElementChild.getBoundingClientRect();
-
-  
-  
-    // window.scrollBy({
-    //   top: cardHeight * 2,
-    //   behavior: 'smooth',
-    // });
   }
 
   const lightbox = new SimpleLightbox('.gallery a', {
