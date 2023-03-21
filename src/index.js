@@ -1,4 +1,4 @@
-// import './sass/main.scss';
+
 import { fetchImages } from './js/fetch-images';
 import { renderGallery } from './js/render-gallery';
 import { onScroll, onToTopBtn } from './js/scroll';
@@ -10,6 +10,8 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 const searchForm = document.querySelector('#search-form');
 const gallery = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.btn-load-more');
+
+
 let query = '';
 let page = 1;
 let simpleLightBox;
