@@ -22,6 +22,13 @@ export function addStyle() {
     
 }
 
+let largeImageURL = ''
+let webformatURL = ''
+let tags = ''
+let likes = ''
+let views = ''
+let comments = ''
+let downloads = ''
 
 export const itemTpl = `
 <a class="gallery-item" href="${largeImageURL}">

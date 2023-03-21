@@ -3,6 +3,7 @@ import "simplelightbox/dist/simple-lightbox.min.css"
 import Notiflix from 'notiflix'
 import {fetchCard} from './js/service'
 import { lens,addStyle } from './js/markup'
+import { itemTpl } from './js/markup'
 
 export const refs = {
     form: document.querySelector('.search-form'),
