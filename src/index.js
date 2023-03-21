@@ -3,7 +3,7 @@ import "simplelightbox/dist/simple-lightbox.min.css"
 import Notiflix from 'notiflix'
 import {fetchCard} from './js/service'
 import { lens,addStyle } from './js/markup'
-import { itemTpl } from './js/markup'
+
 
 export const refs = {
     form: document.querySelector('.search-form'),
@@ -124,15 +124,27 @@ function renderItem(data) {
         views,
         comments,
         downloads,
-      }) => itemTpl({
-        webformatURL,
-        largeImageURL,
-        tags,
-        likes,
-        views,
-        comments,
-        downloads,
-      })).join('')
+      }) => {
+        return `
+        <a class="gallery-item" href="${largeImageURL}">
+        <div class="photo-card">
+        <img src="${webformatURL}" alt="${tags}" loading="lazy" width="320"     height="214"/>
+        <div class="info"><p class="info-item">
+        <b>Likes:</b> ${likes}
+        </p>
+        <p class="info-item">
+        <b>Views:</b> ${views}
+        </p>
+        <p class="info-item">
+        <b>Comments:</b> ${comments}
+        </p>
+        <p class="info-item">
+        <b>Downloads:</b> ${downloads}
+        </p>
+        </div></div></a>
+        `
+
+      }).join('')
     return markup;
   }
 
@@ -142,16 +154,16 @@ function createMarkup(data) {
     lightbox.refresh();
 
 
-    const { height: cardHeight } = document
-      .querySelector('.gallery')
-      .firstElementChild.getBoundingClientRect();
+    // const { height: cardHeight } = document
+    //   .querySelector('.gallery')
+    //   .firstElementChild.getBoundingClientRect();
 
-    //   console.log('cardHeight',cardHeight);
   
-    window.scrollBy({
-      top: cardHeight * 2,
-      behavior: 'smooth',
-    });
+  
+    // window.scrollBy({
+    //   top: cardHeight * 2,
+    //   behavior: 'smooth',
+    // });
   }
 
   const lightbox = new SimpleLightbox('.gallery a', {
