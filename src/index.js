@@ -65,23 +65,16 @@ function onSearch(e) {
     .finally(() => {
       refs.buttonMore.disabled = false;
       refs.buttonSubmit.disabled = true;
-    //   refs.form.reset()
     });
-
 }
-
 
 
 function onLoadMoreImg(e) {
     refs.buttonMore.disabled = true;
     page +=1
-    // console.log('page',page);
 
 fetchCard(currentQuery, page, perPage)
 .then(({ hits, totalHits }) => {
-
-    remained =  totalHits - perPage * page
-    console.log('page',page,'remained',remained);
 
   const maxPage = totalHits / perPage;
 
