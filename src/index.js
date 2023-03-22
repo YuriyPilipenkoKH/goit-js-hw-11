@@ -1,7 +1,7 @@
 
-import { fetchImages } from './js/fetch-images';
-import { renderGallery } from './js/render-gallery';
-import { onScroll, onToTopBtn } from './js/scroll';
+import { fetchImages } from './js/fetch';
+import { renderGallery } from './js/render';
+import { onScroll, onToTop } from './js/scroll';
 import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 
@@ -24,7 +24,7 @@ searchForm.addEventListener('submit', onSearchForm);
 loadMoreBtn.addEventListener('click', onLoadMoreBtn);
 
 onScroll();
-onToTopBtn();
+onToTop();
 
 function onSearchForm(e) {
   e.preventDefault();
@@ -56,7 +56,7 @@ function onSearchForm(e) {
     })
     .catch(error => console.log(error))
     .finally(() => {
-      searchForm.reset();
+    //   searchForm.reset();
     });
 }
 
