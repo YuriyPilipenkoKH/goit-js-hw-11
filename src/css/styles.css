@@ -86,14 +86,14 @@
   }
   
   .gallery {
-    margin-left: -20px;
+    gap:16px;
     padding-top: 60px;
     justify-content: center;
   }
   
   .gallery__link {
-    margin-top: 20px;
-    margin-left: 20px;
+   
+  
     min-width: 320px;
     flex-basis: calc((100% - 80px) / 4);
     border: 2px solid rgb(241, 238, 238);
@@ -112,7 +112,7 @@
   .gallery-item {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
   }
   
   .gallery-item__img {
@@ -123,7 +123,7 @@
   
   .info {
     padding: 10px;
-    justify-content: space-around;
+    justify-content: space-evenly;
   }
   
   .info-item {
@@ -133,9 +133,7 @@
     color: #212121;
   }
   
-  .info-item:not(:first-child) {
-    margin-left: 5px;
-  }
+
   
   .btn-load-more.is-hidden {
     display: none;
