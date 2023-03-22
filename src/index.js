@@ -8,8 +8,20 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const searchForm = document.querySelector('#search-form');
+const inputField = document.querySelector('.search-form > input');
 const gallery = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.btn-load-more');
+
+const refs = {
+    form: document.querySelector('.search-form'),
+    inputField: document.querySelector('.search-form > input'),
+    buttonSubmit: document.querySelector('.search-form > button'),
+    loadMore: document.querySelector('.btn-load-more'),
+    galleryList: document.querySelector('.gallery'),
+};
+
+refs.buttonSubmit.classList.add('search-btn')
+
 
 const lightbox = new SimpleLightbox('.gallery a', {
     captionsData: 'alt',
@@ -20,8 +32,9 @@ let query = '';
 let page = 1;
 const perPage = 40;
 
-searchForm.addEventListener('submit', onSearchForm);
-loadMoreBtn.addEventListener('click', onLoadMoreBtn);
+refs.form.addEventListener('submit', onSearchForm);
+refs.loadMore.addEventListener('click', onLoadMoreBtn);
+refs.inputField.addEventListener('input', onInputChange);
 
 onScroll();
 onToTop();
@@ -31,8 +44,8 @@ function onSearchForm(e) {
   window.scrollTo({ top: 0 });
   page = 1;
   query = e.currentTarget.searchQuery.value.trim();
-  gallery.innerHTML = '';
-  loadMoreBtn.classList.add('is-hidden');
+  refs.galleryList.innerHTML = '';
+  refs.loadMore.classList.add('is-hidden');
 
   if (query === '') {
     Notiflix.Notify.failure('The search string cannot be empty. Please specify your search query.');
@@ -49,14 +62,16 @@ function onSearchForm(e) {
         renderGallery(data.hits);
         lightbox.refresh();
         Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
+        refs.buttonSubmit.disabled = true;
+
         if (data.totalHits > perPage) {
-          loadMoreBtn.classList.remove('is-hidden');
+            refs.loadMore.classList.remove('is-hidden');
         }
       }
     })
     .catch(error => console.log(error))
     .finally(() => {
-    //   searchForm.reset();
+    //   refs.form.reset();
     });
 }
 
@@ -71,10 +86,13 @@ function onLoadMoreBtn() {
       const totalPages = Math.ceil(data.totalHits / perPage);
 
       if (page > totalPages) {
-        loadMoreBtn.classList.add('is-hidden');
+        refs.loadMore.classList.add('is-hidden');
         Notiflix.Notify.failure("We're sorry, but you've reached the end of search results.");
       }
     })
     .catch(error => console.log(error));
 }
 
+function onInputChange(e) {
+     refs.buttonSubmit.disabled = false;
+}

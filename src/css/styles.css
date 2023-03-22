@@ -62,6 +62,10 @@
     cursor: pointer;
   }
   
+  .search-btn:disabled  {
+    color: #777;
+    cursor: none;
+}
 
   .search-form button:focus {
     background-color: rgb(180, 180, 180);
