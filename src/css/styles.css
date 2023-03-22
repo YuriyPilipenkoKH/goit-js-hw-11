@@ -28,8 +28,8 @@
     padding-bottom: 10px;
     position: fixed;
     background-color: #03034577;
-    box-shadow: 0 1px 3px rgba(235, 235, 235, 0.12), 0 1px 1px rgba(207, 207, 207, 0.14),
-      0 2px 1px rgba(241, 241, 241, 0.2);
+    box-shadow: 0 1px 3px #ebebeb1f, 0 1px 1px #cfcfcf24,
+      0 2px 1px #f1f1f133;
     z-index: 1;
   }
   
@@ -45,7 +45,7 @@
     border-radius: 20px 0 0 20px;
     border: none;
     outline: none;
-    background-color: rgb(248, 248, 248);
+    background-color: #f8f8f8;
     padding: 8px 10px 8px 20px;
     font: inherit;
   }
@@ -56,7 +56,7 @@
     align-items: center;
     width: 3em;
     border: none;
-    background-color: rgb(200, 200, 200);
+    background-color: #c8c8c8;
   
     border-radius: 0 20px 20px 0;
     cursor: pointer;
@@ -68,13 +68,27 @@
 }
 
   .search-form button:focus {
-    background-color: rgb(180, 180, 180);
+    background-color: #b4b4b4;
     transition: all 0.3s;
     outline: none;
     color: #ff0;
 
   }
   
+.btn-to-bot {
+    position: fixed;
+    rotate: 180deg;
+    top: 12px;
+    right: 20px;
+   color: transparent;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.btn-to-bot:hover {
+    color: #c3c3c3; 
+} 
+
   .gallery-container {
     padding-left: 15px;
     padding-right: 15px;
@@ -97,10 +111,9 @@
   
   .gallery__link {
    
-  
     min-width: 320px;
     flex-basis: calc((100% - 80px) / 4);
-    border: 2px solid rgb(241, 238, 238);
+    border: 2px solid #f1eeee;
     border-radius: 10px;
     overflow: hidden;
     transition: all 0.3s;
