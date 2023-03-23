@@ -66,7 +66,7 @@ function onSearchForm(e) {
     })
     .catch(error => console.log(error))
     .finally(() => {
-    //   refs.form.reset();
+         refs.form.reset();
     });
 }
 
@@ -80,7 +80,7 @@ function onLoadMoreBtn() {
 
       const totalPages = Math.ceil(data.totalHits / perPage);
 
-      if (page > totalPages) {
+      if (page >= totalPages) {
         refs.loadMore.classList.add('is-hidden');
         Notiflix.Notify.failure("We're sorry, but you've reached the end of search results.");
       }
@@ -91,3 +91,4 @@ function onLoadMoreBtn() {
 function onInputChange(e) {
      refs.buttonSubmit.disabled = false;
 }
+
