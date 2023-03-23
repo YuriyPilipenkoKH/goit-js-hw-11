@@ -7,10 +7,10 @@ import SimpleLightbox from 'simplelightbox';
 
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-const searchForm = document.querySelector('#search-form');
-const inputField = document.querySelector('.search-form > input');
-const gallery = document.querySelector('.gallery');
-const loadMoreBtn = document.querySelector('.btn-load-more');
+// const searchForm = document.querySelector('#search-form');
+// const inputField = document.querySelector('.search-form > input');
+// const gallery = document.querySelector('.gallery');
+// const loadMoreBtn = document.querySelector('.btn-load-more');
 
 const refs = {
     form: document.querySelector('.search-form'),
@@ -38,6 +38,7 @@ refs.inputField.addEventListener('input', onInputChange);
 
 onScroll();
 onToTop();
+
 
 function onSearchForm(e) {
   e.preventDefault();

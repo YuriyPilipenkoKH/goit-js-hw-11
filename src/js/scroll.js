@@ -1,11 +1,10 @@
-export { onScroll, onToTop };
+export { onScroll, onToTop, onToDown };
 
 const toTopBtn = document.querySelector('.btn-to-top');
-const toDownBtn = document.querySelector('.btn-to-bot');
 
 window.addEventListener('scroll', onScroll);
 toTopBtn.addEventListener('click', onToTop);
-toDownBtn.addEventListener('click', onToDown);
+
 
 function onScroll() {
   const scrolled = window.pageYOffset;
@@ -27,6 +26,3 @@ function onToTop() {
   }
 }
 
-function onToDown() {
-    
-}
