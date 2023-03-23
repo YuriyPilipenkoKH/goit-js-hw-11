@@ -1,16 +1,10 @@
-
+import Notiflix from 'notiflix';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 import { fetchImages } from './js/fetch';
 import { renderGallery } from './js/render';
 import { onScroll, onToTop } from './js/scroll';
-import Notiflix from 'notiflix';
-import SimpleLightbox from 'simplelightbox';
 
-import 'simplelightbox/dist/simple-lightbox.min.css';
-
-// const searchForm = document.querySelector('#search-form');
-// const inputField = document.querySelector('.search-form > input');
-// const gallery = document.querySelector('.gallery');
-// const loadMoreBtn = document.querySelector('.btn-load-more');
 
 const refs = {
     form: document.querySelector('.search-form'),
